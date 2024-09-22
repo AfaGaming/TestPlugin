@@ -1,0 +1,29 @@
+name: TestPlugin
+version: '1.0-SNAPSHOT'
+main: com.afa.testPlugin.Main
+api-version: '1.21'
+authors: [ AfaGaming ]
+description: A cool test plugin.
+commands:
+  test:
+  whitelist:
+  gun:
+  back:
+  vanish:
+  book:
+  banner:
+  punish:
+  clear:
+  scheduler:
+  menu:
+  fruit:
+  boost:
+  sethealth:
+  skull:
+  testupdates:
+#  teleportask:
+#    aliases:
+#      - tpa
+#  teleportaccept:
+#    aliases:
+#      - tpaaccept
