@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class Data {
     private String playerName;
-    private Boolean value;
+    private Boolean buildMode;
     private Date date;
 
-    public Data(String playerName, Boolean value, Date date) {
+    public Data(String playerName, Boolean buildMode, Date date) {
         this.playerName = playerName;
-        this.value = value;
+        this.buildMode = buildMode;
         this.date = date;
     }
 
     public String getPlayerName() { return playerName; }
-    public Boolean getValue() { return value; }
+    public Boolean getBuildMode() { return buildMode; }
     public Date getDate() { return date; }
 }
