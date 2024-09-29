@@ -12,7 +12,7 @@ public class YamlManager {
         this.main = main;
     }
 
-    public YamlConfiguration createYamlFile(String name) throws IOException {
+    public YamlConfiguration getYamlFile(String name) throws IOException {
         File file = new File(main.getDataFolder(), name);
         if (!file.exists()) { file.createNewFile(); }
 

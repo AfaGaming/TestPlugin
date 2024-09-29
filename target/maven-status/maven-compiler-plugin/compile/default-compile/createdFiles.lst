@@ -21,9 +21,11 @@ com\afa\testPlugin\commands\skullCommand.class
 com\afa\testPlugin\Events\MenuListener.class
 com\afa\testPlugin\Events\playerInteractEvent.class
 com\afa\testPlugin\commands\boostCommand.class
+com\afa\testPlugin\Events\mapInitializeEvent.class
 com\afa\testPlugin\TabComplete\SchedulerTab.class
 com\afa\testPlugin\commands\MenuCommand.class
 com\afa\testPlugin\commands\fruitCommand.class
+com\afa\testPlugin\commands\jsonCommand.class
 com\afa\testPlugin\Events\playerToggleSneakEvent.class
 com\afa\testPlugin\Events\serverListPingEvent.class
 com\afa\testPlugin\Managers\YamlManager.class

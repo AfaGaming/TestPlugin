@@ -16,27 +16,27 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.Date;
 
 public final class Main extends JavaPlugin implements Listener, CommandExecutor {
 
     private JsonManager jsonManager;
-    public JsonManager getJsonManager() { return jsonManager; }
-
     private YamlManager yamlManager;
-    public YamlManager getYamlManager() { return yamlManager; }
 
-    public BossBar bossBar;
-    @Override
-    public void onEnable() {
+        public BossBar bossBar;
+        @Override
+        public void onEnable() {
+         yamlManager = new YamlManager(this);
+         jsonManager = new JsonManager();
         // CREATING CUSTOM YML & JSON FILES
         try {
             if (!getDataFolder().exists()) { getDataFolder().mkdir(); }
-            getYamlManager().createYamlFile("data.yml");
-            getJsonManager().writeJson("data.json", new Data("Afa", true, new Date()));
-            getJsonManager().writeJson("data.json", new Data("Stephen", false, new Date()));
+            getYamlManager().getYamlFile("data.yml");
+            getJsonManager().writeJson(new File(getDataFolder(), "data"),"afa.json", new Data("Afa", true, new Date()));
+            getJsonManager().writeJson(new File(getDataFolder(), "data"), "stephen.json", new Data("Stephen", false, new Date()));
         } catch (Exception ex) {
-            Bukkit.getLogger().severe("There was an error with generating a custom YML file:");
+            Bukkit.getLogger().severe("There was an error with generating a custom file:");
             ex.printStackTrace();
         }
 
@@ -69,6 +69,7 @@ public final class Main extends JavaPlugin implements Listener, CommandExecutor 
         this.getCommand("sethealth").setTabCompleter(new setHealthTab());
         this.getCommand("skull").setExecutor(new skullCommand());
         this.getCommand("testupdates").setExecutor(new TestUpdatesCommand());
+        this.getCommand("json").setExecutor(new jsonCommand(this));
 //        getCommand("teleportask").setExecutor(new teleportAskCommand());
 //        getCommand("teleportaccept").setExecutor(new teleportAcceptCommand());
 //        getCommand("test").setExecutor(new testCommand());
@@ -84,4 +85,7 @@ public final class Main extends JavaPlugin implements Listener, CommandExecutor 
         Bukkit.getPluginManager().registerEvents(new playerInteractEvent(), this);
 //        Bukkit.getPluginManager().registerEvents(new creatureSpawnEvent(), this);
     }
+
+    public JsonManager getJsonManager() { return jsonManager; }
+    public YamlManager getYamlManager() { return yamlManager; }
 }
