@@ -21,6 +21,7 @@ commands:
   sethealth:
   skull:
   testupdates:
+  json:
 #  teleportask:
 #    aliases:
 #      - tpa

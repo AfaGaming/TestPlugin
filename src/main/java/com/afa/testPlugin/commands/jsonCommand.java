@@ -21,7 +21,7 @@ public class jsonCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         try {
             Object object = main.getJsonManager().readJson(new File(new File(main.getDataFolder(), "data"), "afa.json"), Data.class);
-            Bukkit.getLogger().info(object.toString());
+            Bukkit.getLogger().info(object.getPlayerName());  // ISSUE HERE - unable to access getPlayerName()
         } catch (IOException e) {
             e.printStackTrace();
         }
